@@ -27,12 +27,15 @@ jobs:
 #      - run: conda install -c conda-forge ta-lib
       - name: install ta-lib
         run: |
+          export TA_LIBRARY_PATH=$PREFIX/lib
+          export TA_INCLUDE_PATH=$PREFIX/include
           wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
           tar xvfz ta-lib-0.4.0-src.tar.gz
           cd ta-lib/
           ./configure --prefix=/usr
           make
           sudo make install
+          export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
       - run: pip list
       - name: run daily job
         run: python week_job.py
