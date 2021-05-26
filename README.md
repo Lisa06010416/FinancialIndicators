@@ -1,7 +1,6 @@
 # Financial Indicators
 Download stock data from and calculate some financial indicators(only KD value know) simply.
- 
-* If your os is MacOs, you need to install HomeBrew
+
 
 ## STEP 0 install package
 ````
