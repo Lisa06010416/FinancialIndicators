@@ -15,7 +15,7 @@ setup(
     url="https://github.com/Lisa06010416/PythonPackaging",
     packages=find_packages("src", exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     package_dir={"":"src"},
-    install_requires=["ta-lib", "requests", "pandas"],
+    install_requires=["requests", "pandas"],
     classifiers={
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
