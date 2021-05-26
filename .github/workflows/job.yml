@@ -1,6 +1,9 @@
-name: daily job
+name: update job
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '59 23 * * *'
 
@@ -26,11 +29,7 @@ jobs:
         run: python week_job.py
       - name: Commit files
         run: |
-          git init
           git config --local user.name Lisa06010416
           git config --local user.email lisalin0601@gmail.com
-          git status
-          git remote add origin https://github.com/Lisa06010416/FinancialIndicators.git
-          git add --all
           git commit -m "update data ..."
-          git push origin main -f
+          git push
