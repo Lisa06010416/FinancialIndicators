@@ -1,0 +1,35 @@
+name: daily job
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '59 23 * * *'
+
+jobs:
+  build:
+    name: set environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up python 3.6
+          uses: actions/setup-python@v2
+          with:
+            python-version: '3.6'
+      - name: install our package
+        run: |
+          pip install .
+      - name: run daily job
+        run: |
+          python week_job.py
+      - name: Commit files
+        run: |
+          git init
+          git config --local user.name Lisa06010416
+          git config --local user.email lisalin0601@gmail.com
+          git status
+          git remote add origin https://github.com/Lisa06010416/FinancialIndicators.git
+          git add --all
+          git commit -m "update data ..."
+          git push origin main -f
