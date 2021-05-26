@@ -15,9 +15,9 @@ def daily_alert():
     month_kd = kd.get_kd("month")
     message = ckeck(day_kd,week_kd,month_kd)
     if message:
-        url = os.environ["secrets.README_AUTHORIZATION"]
+        url = os.environ["README_URL_FINA"]
         requests.post(url,
                      params={'message': message},
-                     headers={'Authorization': 'Bearer ' + os.environ["secrets.README_AUTHORIZATION"]})
+                     headers={'Authorization': 'Bearer ' + os.environ["README_AUTHORIZATION"]})
 
 daily_alert()
