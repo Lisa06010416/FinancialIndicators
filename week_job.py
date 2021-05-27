@@ -16,9 +16,10 @@ def daily_alert():
     message = ckeck(day_kd,week_kd,month_kd)
     if message:
         url = os.environ.get("README_URL_FINA")
-        print(url)
-        requests.post(url,
+        r = requests.post(url,
                      params={'message': message},
                      headers={'Authorization': 'Bearer ' + os.environ.get("README_AUTHORIZATION")})
+        print(url)
+        print(r)
 
 daily_alert()
