@@ -5,10 +5,6 @@ from financial_indicators import KD
 from financial_indicators import ckeck
 
 
-kd = KD("TAIEX_data")
-kd.update_data_daily()
-
-
 def daily_alert():
     day_kd = kd.get_kd("day")
     week_kd = kd.get_kd("week")
@@ -21,4 +17,6 @@ def daily_alert():
                      headers={'Authorization': 'Bearer ' + os.environ.get("README_AUTHORIZATION")})
         print("state code {}".format(r.status_code))
 
+
+kd = KD("TAIEX_data")
 daily_alert()

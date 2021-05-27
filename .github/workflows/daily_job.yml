@@ -17,7 +17,6 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.7
-      - run: conda --version
       - run: which python
       - run: python -m pip install --upgrade pip
       - name: install ta-lib
@@ -35,7 +34,7 @@ jobs:
         env:
           README_AUTHORIZATION: ${{ secrets.README_AUTHORIZATION }}
           README_URL_FINA: ${{ secrets.README_URL_FINA }}
-        run: echo | python week_job.py
+        run: echo | python daily__job.py
       - name: Commit files
         run: |
           git config --local user.name Lisa06010416

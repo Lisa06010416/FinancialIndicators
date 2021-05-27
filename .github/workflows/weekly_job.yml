@@ -1,0 +1,49 @@
+name: alert job
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '59 23 * * 6'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - run: which python
+      - run: python -m pip install --upgrade pip
+      - name: install ta-lib
+        run: |
+          sudo apt-get install gcc-multilib g++-multilib
+          wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+          tar xvfz ta-lib-0.4.0-src.tar.gz
+          cd ta-lib/
+          ./configure --prefix=/usr
+          make
+          sudo make install
+      - run: pip install .
+      - run: pip list
+      - name: run weekly job
+        env:
+          README_AUTHORIZATION: ${{ secrets.README_AUTHORIZATION }}
+          README_URL_FINA: ${{ secrets.README_URL_FINA }}
+        run: echo | python week_job.py
+      - name: Commit files
+        run: |
+          git config --local user.name Lisa06010416
+          git config --local user.email lisalin0601@gmail.com
+          git add TAIEX_data/*
+          if [ -z "$(git status --porcelain TAIEX_data/*)" ]
+          then
+              echo "nothing to update."
+          else
+              git commit -m "update data ..."
+              git push
+          fi
