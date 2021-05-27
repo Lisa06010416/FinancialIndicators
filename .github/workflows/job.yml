@@ -34,7 +34,6 @@ jobs:
           ./configure --prefix=/usr
           make
           sudo make install
-          rm ta-lib-0.4.0-src.tar.gz
           rm -r ta-lib
       - run: pip install .
       - run: pip list
