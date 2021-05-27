@@ -19,7 +19,7 @@ def daily_alert():
         r = requests.post(url,
                      params={'message': message},
                      headers={'Authorization': 'Bearer ' + os.environ.get("README_AUTHORIZATION")})
-        print(url)
+        print(url+"123")
         print(r)
 
 daily_alert()
