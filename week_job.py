@@ -19,7 +19,6 @@ def daily_alert():
         r = requests.post(url,
                      params={'message': message},
                      headers={'Authorization': 'Bearer ' + os.environ.get("README_AUTHORIZATION")})
-        print(" ".join(url))
-        print(r)
+        print("state code {}".format(r.status_code))
 
 daily_alert()

@@ -41,5 +41,10 @@ jobs:
           git config --local user.name Lisa06010416
           git config --local user.email lisalin0601@gmail.com
           git add TAIEX_data/*
-          git commit -m "update data ..."
-          git push
+          if [ -z "$(git status --porcelain TAIEX_data/*)" ]
+          then
+              echo "nothing to update."
+          else
+              git commit -m "update data ..."
+              git push
+          fi
