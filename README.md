@@ -8,9 +8,12 @@ pip install .
 ````
 
 ## STEP1 get stock data
-#### creat data dir
+#### creat empty data dir
 
-![data dir]("/image/data_path.png")
+- TAIEX_data
+  * day
+  * month
+  * week
 
 #### doenload and process data
 ````
