@@ -34,7 +34,7 @@ jobs:
         env:
           README_AUTHORIZATION: ${{ secrets.README_AUTHORIZATION }}
           README_URL_FINA: ${{ secrets.README_URL_FINA }}
-        run: echo | python week_job.py
+        run: echo | python week_alert_job.py
       - name: Commit files
         run: |
           git config --local user.name Lisa06010416

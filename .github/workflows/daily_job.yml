@@ -34,7 +34,7 @@ jobs:
         env:
           README_AUTHORIZATION: ${{ secrets.README_AUTHORIZATION }}
           README_URL_FINA: ${{ secrets.README_URL_FINA }}
-        run: echo | python daily__job.py
+        run: echo | python daily_update_job.py
       - name: Commit files
         run: |
           git config --local user.name Lisa06010416
