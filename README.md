@@ -10,7 +10,7 @@ pip install .
 ## STEP1 get stock data
 #### creat data dir
 
-![data_dir]("/image/data_path.png")
+![data_dir]("https://github.com/Lisa06010416/FinancialIndicators/blob/main/image/data_path.png")
 
 #### doenload and process data
 ````
