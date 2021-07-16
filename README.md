@@ -47,3 +47,4 @@ month_kd = KD("TAIEX_data").get_kd("month")
 print(month_kd)
 ```
 
+# Steps3 Use Github action to send notice
